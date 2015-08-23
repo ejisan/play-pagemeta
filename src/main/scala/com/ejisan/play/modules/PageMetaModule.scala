@@ -1,6 +1,6 @@
-package com.ejisan.play.modules
+package ejisan.play.modules
 
-import com.ejisan.play.libs.{ PageMetaApi, I18nPageMetaApi }
+import ejisan.play.libs.{ PageMetaApi, I18nPageMetaApi }
 import play.api.{ Configuration, Environment }
 import play.api.inject.Module
 

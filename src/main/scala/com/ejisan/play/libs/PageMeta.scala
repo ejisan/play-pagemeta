@@ -1,4 +1,4 @@
-package com.ejisan.play.libs
+package ejisan.play.libs
 
 import play.twirl.api.Html
 
