@@ -17,6 +17,7 @@ case class PageMeta(key: String, title: String, metas: PageMeta.Metas = Map()) {
   def toHtml: Html = Html(s"<title>${title}</title>\n" + metas.map({ case (name, value) => s"""<meta name="${name}" content="${value}">""" }).mkString("\n"))
 
   def toJson: JsValue = Json.toJson(this)
+  def toStringedJson: String = Json.stringify(Json.toJson(this))
 }
 
 object PageMeta {
