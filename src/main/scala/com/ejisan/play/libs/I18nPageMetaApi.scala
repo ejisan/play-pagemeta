@@ -13,6 +13,6 @@ class I18nPageMetaApi extends PageMetaApi {
       "author" -> messages.translate(k + ".author", Nil)
     ).filter(!_._2.isEmpty).map({case (k, v) => (k, v.get)})
 
-    PageMeta(k, Messages(k + ".title"), metas, additional)
+    PageMeta(k, Messages(k + ".title"), metas ++ additional)
   }
 }

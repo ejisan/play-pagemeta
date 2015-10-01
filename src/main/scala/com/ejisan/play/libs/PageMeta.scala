@@ -1,8 +1,9 @@
 package ejisan.play.libs
 
 import play.twirl.api.Html
+import play.api.libs.json._
 
-class PageMeta(val key: String, val title: String, val metas: PageMeta.Metas) {
+case class PageMeta(key: String, title: String, metas: PageMeta.Metas = Map()) {
   def this(key: String, title: String) = this(key, title, Map.empty)
   def this(key: String, title: String, metas: PageMeta.Metas, additional: PageMeta.Metas) = this(key, title, metas ++ additional)
   override def toString = s"PageMeta($key, $title, $metas)"
@@ -16,27 +17,6 @@ class PageMeta(val key: String, val title: String, val metas: PageMeta.Metas) {
 
 object PageMeta {
   type Metas = Map[String, String]
-  /**
-   *  PageMeta factory method
-   *  @param key    Page key
-   *  @param title  Title for title tag
-   *  @param metas  A map object of meta name and content pair
-   **/
-  def apply(key: String, title: String, metas: Metas): PageMeta = new PageMeta(key, title, metas)
-  /**
-   *  PageMeta factory method
-   *  @param key    Page key
-   *  @param title  Title for title tag
-   **/
-  def apply(key: String, title: String): PageMeta = new PageMeta(key, title)
-  /**
-   *  PageMeta factory method
-   *  @param key        Page key
-   *  @param title      Title for title tag
-   *  @param metas      A map object of meta name and content pair
-   *  @param additional A map object of additional meta name and content pair
-   **/
-  def apply(key: String, title: String, metas: Metas, additional: Metas): PageMeta = new PageMeta(key, title, metas, additional)
 
   // Utilities
 
@@ -48,4 +28,6 @@ object PageMeta {
   def description(description: String): (String, String) = ("description", description)
   /** Meta author utility */
   def author(author: String): (String, String) = ("author", author)
+
+  implicit val jsonFormat = Json.format[PageMeta]
 }
