@@ -1,10 +1,10 @@
 name := """play-pagemeta"""
 
-version := "1.2.1"
+version := "2.0.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-crossScalaVersions := Seq("2.11.7")
+crossScalaVersions := Seq("2.11.8")
 
 organization := "com.ejisan"
 
@@ -13,6 +13,6 @@ publishTo := Some(Resolver.file("ejisan", file(Path.userHome.absolutePath+"/Deve
 lazy val `play-pagemeta` = (project in file("."))
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play" % "2.4.3" % Provided,
-  "com.typesafe.play" %% "play-specs2" % "2.4.3" % Test
+  "com.typesafe.play" %% "play" % "2.5.4" % Provided,
+  "com.typesafe.play" %% "play-specs2" % "2.5.4" % Test
 )
